@@ -15,6 +15,106 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 
+    <style>
+        /* Server Logo Styling */
+        .server-logo {
+            max-width: 250px;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(none);
+            box-shadow: none;
+            text-shadow: none;
+            margin-bottom: 20px;
+        }
+
+        /* IP Modal Styles */
+        .ip-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ip-modal.active {
+            display: flex;
+        }
+
+        .ip-modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            cursor: pointer;
+        }
+
+        .ip-modal-content {
+            position: relative;
+            background: #0a1628;
+            border-radius: 12px;
+            padding: 50px 40px 40px 40px;
+            max-width: 600px;
+            width: 90%;
+            z-index: 1001;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 12px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: #a0aec0;
+            font-size: 28px;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s;
+            z-index: 1002;
+        }
+
+        .modal-close:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .ip-modal-content {
+                padding: 45px 20px 30px 20px;
+            }
+
+            .ip-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .server-logo {
+                max-width: 150px;
+            }
+        }
+    </style>
+
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 </head>
@@ -53,23 +153,8 @@
                 <span>No World Reset</span>
             </div>
 
-            <div class="ip-grid">
-                <div class="ip-box">
-                    <h2>Java Edition</h2>
-                    <p id="javaip">bsc.skilloraclouds.site:20001</p>
-                    <button type="button" onclick="copyJavaIP()">Copy Java IP</button>
-                </div>
-
-                <div class="ip-box">
-                    <h2>Bedrock Edition</h2>
-                    <p id="bedrockip">bsc.skilloraclouds.site</p>
-                    <p class="port">Port: 20001</p>
-                    <button type="button" onclick="copyBedrockIP()">Copy Bedrock IP</button>
-                </div>
-            </div>
-
             <div class="hero-buttons">
-                <button type="button" onclick="copyJavaIP()">Copy Server IP</button>
+                <button type="button" onclick="openIPModal()">Copy Server IP</button>
                 <a href="https://discord.gg/qKcyT4TAtZ" target="_blank" rel="noopener">Join Discord</a>
             </div>
 
@@ -252,7 +337,7 @@
 
             <div class="discord-actions">
                 <a href="https://discord.gg/qKcyT4TAtZ" target="_blank" rel="noopener">Join Discord</a>
-                <button type="button" onclick="copyJavaIP()">Copy IP</button>
+                <button type="button" onclick="openIPModal()">Copy IP</button>
             </div>
         </section>
 
@@ -279,7 +364,80 @@
         </section>
     </main>
 
+    <!-- IP Modal -->
+    <div id="ipModal" class="ip-modal">
+        <div class="ip-modal-overlay" onclick="closeIPModal()"></div>
+        <div class="ip-modal-content">
+            <button type="button" class="modal-close" onclick="closeIPModal()">&times;</button>
+            
+            <div class="ip-grid">
+                <div class="ip-box">
+                    <h2>Java Edition</h2>
+                    <p id="javaip">bsc.skilloraclouds.site:20001</p>
+                    <button type="button" onclick="copyJavaIP()">Copy Java IP</button>
+                </div>
+
+                <div class="ip-box">
+                    <h2>Bedrock Edition</h2>
+                    <p id="bedrockip">bsc.skilloraclouds.site</p>
+                    <p class="port">Port: 20001</p>
+                    <button type="button" onclick="copyBedrockIP()">Copy Bedrock IP</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="js/script.js"></script>
+
+    <script>
+        // IP Modal Functions
+        function openIPModal() {
+            const modal = document.getElementById('ipModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeIPModal() {
+            const modal = document.getElementById('ipModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeIPModal();
+            }
+        });
+
+        // Copy IP functions
+        function copyJavaIP() {
+            const javaIP = document.getElementById('javaip').textContent;
+            navigator.clipboard.writeText(javaIP).then(() => {
+                showToast('Java IP copied to clipboard!');
+            }).catch(() => {
+                showToast('Failed to copy IP');
+            });
+        }
+
+        function copyBedrockIP() {
+            const bedrockIP = document.getElementById('bedrockip').textContent;
+            navigator.clipboard.writeText(bedrockIP).then(() => {
+                showToast('Bedrock IP copied to clipboard!');
+            }).catch(() => {
+                showToast('Failed to copy IP');
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.style.display = 'block';
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 2000);
+        }
+    </script>
 </body>
 
 </html>
