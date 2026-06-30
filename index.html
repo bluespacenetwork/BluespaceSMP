@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blue Space Craft is a 24/7 Java and Bedrock Minecraft SMP with economy, jobs, quests, crates, PvP, events, and a friendly survival community.">
+    <meta name="theme-color" content="#08131f">
+
+    <title>Blue Space Craft SMP</title>
+
+    <link rel="icon" href="images/branding/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <div class="stars" aria-hidden="true"></div>
+
+    <nav>
+        <a class="logo" href="#home" aria-label="Blue Space Craft home">
+            <img src="images/branding/logo.png" alt="">
+            <span>Blue Space Craft</span>
+        </a>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#status-section">Status</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#discord">Discord</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="hero" id="home">
+            <img src="images/branding/logo.png" class="server-logo" alt="Blue Space Craft logo">
+
+            <h1>Blue Space Craft</h1>
+            <p>A 24/7 Survival Multiplayer server for Java and Bedrock players. Build, trade, explore, fight, and create your own adventure.</p>
+
+            <div class="hero-badges" aria-label="Server highlights">
+                <span>Java</span>
+                <span>Bedrock</span>
+                <span>Cracked</span>
+                <span>24/7</span>
+                <span>No World Reset</span>
+            </div>
+
+            <div class="ip-grid">
+                <div class="ip-box">
+                    <h2>Java Edition</h2>
+                    <p id="javaip">bsc.skilloraclouds.site:20001</p>
+                    <button type="button" onclick="copyJavaIP()">Copy Java IP</button>
+                </div>
+
+                <div class="ip-box">
+                    <h2>Bedrock Edition</h2>
+                    <p id="bedrockip">bsc.skilloraclouds.site</p>
+                    <p class="port">Port: 20001</p>
+                    <button type="button" onclick="copyBedrockIP()">Copy Bedrock IP</button>
+                </div>
+            </div>
+
+            <div class="hero-buttons">
+                <button type="button" onclick="copyJavaIP()">Copy Server IP</button>
+                <a href="https://discord.gg/qKcyT4TAtZ" target="_blank" rel="noopener">Join Discord</a>
+            </div>
+
+            <a class="scroll-indicator" href="#status-section" aria-label="Scroll to server status">↓</a>
+        </section>
+
+        <section class="transition">
+            <div class="transition-image">
+                <img src="images/transitions/transition1.png" alt="Blue Space Craft world preview">
+                <div class="transition-overlay">
+                    <h2>Explore Blue Space Craft</h2>
+                    <p>Your adventure begins here.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="server-status" id="status-section">
+            <h2>Live Server Status</h2>
+
+            <div class="status-card">
+                <div class="status-row">
+                    <span>Status</span>
+                    <strong id="status">Loading...</strong>
+                </div>
+
+                <div class="status-row">
+                    <span>Players</span>
+                    <strong id="players">Loading...</strong>
+                </div>
+
+                <div class="status-row">
+                    <span>Version</span>
+                    <strong id="version">Loading...</strong>
+                </div>
+
+                <div class="status-row">
+                    <span>Next Update</span>
+                    <strong id="ping">Events and fixes soon</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <div class="about-content">
+                <h2>Welcome to Blue Space Craft</h2>
+                <p>Looking for an SMP that does not disappear after a month? You have found it. Blue Space Craft supports Java and Bedrock Edition, with space for builders, explorers, traders, PvP players, and friends who just want a steady server to call home.</p>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <h2>Why Play Here?</h2>
+
+            <div class="feature-grid">
+                <article class="card">
+                    <span class="card-icon">🏡</span>
+                    <h3>Player Economy</h3>
+                    <p>Trade, own shops, and become one of the richest players.</p>
+                </article>
+
+                <article class="card">
+                    <span class="card-icon">💼</span>
+                    <h3>Jobs</h3>
+                    <p>Earn money while mining, farming, fishing, and more.</p>
+                </article>
+
+                <article class="card">
+                    <span class="card-icon">🎁</span>
+                    <h3>Crates</h3>
+                    <p>Unlock rewards, useful items, and special surprises.</p>
+                </article>
+
+                <article class="card">
+                    <span class="card-icon">🗺️</span>
+                    <h3>Quests</h3>
+                    <p>Complete adventures and exciting missions across the SMP.</p>
+                </article>
+
+                <article class="card">
+                    <span class="card-icon">⚔️</span>
+                    <h3>PvP</h3>
+                    <p>Challenge players whenever you are feeling brave.</p>
+                </article>
+
+                <article class="card">
+                    <span class="card-icon">🌍</span>
+                    <h3>Crossplay</h3>
+                    <p>Java and Bedrock players can play together.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="official-banner">
+            <h2>Official Server Banner</h2>
+            <img src="images/hero/banner.jpg" alt="Blue Space Craft server banner">
+        </section>
+
+        <section class="gallery" id="gallery">
+            <div class="section-heading">
+                <h2>Gallery</h2>
+                <p>Featured moments from the Blue Space Craft world.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <button class="gallery-item active" type="button" data-image="images/effects/mountains.png">
+                    <img src="images/effects/mountains.png" alt="Blue Space Craft banner screenshot">
+                </button>
+                <button class="gallery-item" type="button" data-image="images/effects/ground.png">
+                    <img src="images/effects/ground.png" alt="Blue Space Craft transition screenshot">
+                </button>
+                <button class="gallery-item" type="button" data-image="images/effects/stars.png">
+                    <img src="images/effects/stars.png" alt="Blue Space Craft logo artwork">
+                </button>
+            </div>
+
+            <div class="gallery-preview">
+                <img id="galleryPreview" src="images/effects/mountains.png" alt="Selected Blue Space Craft gallery image">
+            </div>
+        </section>
+
+        <section class="players" id="players">
+            <h2>Most Active Players</h2>
+
+            <div class="player-grid">
+                <article class="player-card">
+                    <img src="https://mc-heads.net/avatar/Steve/100" alt="Player 1 avatar">
+                    <h3>Player 1</h3>
+                    <p>Top Builder</p>
+                </article>
+
+                <article class="player-card">
+                    <img src="https://mc-heads.net/avatar/Alex/100" alt="Player 2 avatar">
+                    <h3>Player 2</h3>
+                    <p>PvP Master</p>
+                </article>
+
+                <article class="player-card">
+                    <img src="https://mc-heads.net/avatar/Notch/100" alt="Player 3 avatar">
+                    <h3>Player 3</h3>
+                    <p>Explorer</p>
+                </article>
+
+                <article class="player-card">
+                    <img src="https://mc-heads.net/avatar/Dream/100" alt="Player 4 avatar">
+                    <h3>Player 4</h3>
+                    <p>Economy King</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="events">
+            <div class="section-heading">
+                <h2>Server Events</h2>
+                <p>Fresh activities for the community.</p>
+            </div>
+
+            <div class="event-list">
+                <article>
+                    <span>Weekly</span>
+                    <h3>Build Challenge</h3>
+                    <p>Show your best builds and compete for rewards.</p>
+                </article>
+                <article>
+                    <span>Coming Soon</span>
+                    <h3>Community Boss Fight</h3>
+                    <p>Team up, gear up, and defeat a special event boss.</p>
+                </article>
+                <article>
+                    <span>Next Update</span>
+                    <h3>Changelog Section</h3>
+                    <p>Website updates and server changes will appear here.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="discord" id="discord">
+            <div>
+                <h2>Join the Community</h2>
+                <p>Chat with players, get announcements, report issues, and stay close to every Blue Space Craft update.</p>
+            </div>
+
+            <div class="discord-actions">
+                <a href="https://discord.gg/qKcyT4TAtZ" target="_blank" rel="noopener">Join Discord</a>
+                <button type="button" onclick="copyJavaIP()">Copy IP</button>
+            </div>
+        </section>
+
+        <section class="faq" id="contact">
+            <div class="section-heading">
+                <h2>Quick Join Guide</h2>
+                <p>Use the IP above, join the Discord, and start your survival story.</p>
+            </div>
+
+            <div class="faq-grid">
+                <article>
+                    <h3>Can Java and Bedrock play together?</h3>
+                    <p>Yes. Blue Space Craft supports both editions.</p>
+                </article>
+                <article>
+                    <h3>Does the world reset?</h3>
+                    <p>No regular world resets are planned, so your progress matters.</p>
+                </article>
+                <article>
+                    <h3>Where do I ask for help?</h3>
+                    <p>Join the Discord for support, updates, and community chat.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
