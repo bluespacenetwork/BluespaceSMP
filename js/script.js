@@ -1,5 +1,5 @@
-const JAVA_IP = "bsc.skilloraclouds.site:20001";
-const BEDROCK_IP = "bsc.skilloraclouds.site:20001";
+const JAVA_IP = "play.bluespacecraft.fun";
+const BEDROCK_IP = "paid17.skilloraclouds.site:20019";
 const STATUS_API = "https://api.mcsrvstat.us/3/bsc.skilloraclouds.site:20001";
 
 function copyText(text, message) {
