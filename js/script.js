@@ -1,6 +1,35 @@
 const JAVA_IP = "del-1.candynodes.in:19139";
 const BEDROCK_IP = "del-1.candynodes.in:19139";
-const STATUS_API = "https://mcstatus.io/status/java/del-1.candynodes.in:19139";
+
+async function loadServer() {
+    try {
+        const response = await fetch(
+            "https://api.mcstatus.io/v2/status/java/del-1.candynodes.in:19139"
+        );
+
+        const data = await response.json();
+
+        if (data.online) {
+            document.getElementById("status").innerHTML = "🟢 Online";
+            document.getElementById("players").innerHTML =
+                data.players.online + " / " + data.players.max;
+            document.getElementById("version").innerHTML =
+                data.version.name_clean || data.version.name_raw;
+            document.getElementById("ping").innerHTML = "Available";
+        } else {
+            document.getElementById("status").innerHTML = "🔴 Offline";
+            document.getElementById("players").innerHTML = "-";
+            document.getElementById("version").innerHTML = "-";
+            document.getElementById("ping").innerHTML = "-";
+        }
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+loadServer();
+
+
 const OFFICIALS = [
     {
         name: "PrismGlow",
