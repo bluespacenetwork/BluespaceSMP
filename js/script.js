@@ -3,22 +3,22 @@ const BEDROCK_IP = "paid17.skilloraclouds.site:20019";
 const STATUS_API = "https://api.mcsrvstat.us/3/play.bluespacecraft.fun:20019";
 const OFFICIALS = [
     {
-        name: "ATRAPomegranate",
+        name: "ATRA",
         ign: "ATRAPomegranate",
         skin: "images/skin/ATRAPomegranate.png"
     },
     {
-        name: "cececeh",
+        name: "cece",
         ign: "cececeh",
         skin: "images/skin/cececeh.png"
     },
     {
-        name: "Thor_Advait",
+        name: "Thorium",
         ign: "Thor_Advait",
         skin: "images/skin/Thor_Advait.png"
     },
     {
-        name: "Wanzy_",
+        name: "Wanzy",
         ign: "Wanzy_",
         skin: "images/skin/Wanzy_.png"
     },
