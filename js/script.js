@@ -38,7 +38,7 @@ const OFFICIALS = [
         skin: "images/skin/BitSapphire.png"
     },
     {
-        name: "TurningDoom",
+        name: "D22",
         ign: "TurningDoom",
         skin: "images/skin/TurningDoom.png"
     }
