@@ -31,6 +31,11 @@ const OFFICIALS = [
         name: "CryptexDev",
         ign: "CryptexDev",
         skin: "images/skin/CryptexDev.png"
+    },
+    {
+        name: "BitSapphire",
+        ign: "BitSapphire30",
+        skin: "images/skin/BitSapphire.png"
     }
 ];
 
