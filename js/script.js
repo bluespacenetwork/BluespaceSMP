@@ -1,48 +1,54 @@
-//this is the funtioning unit of our website 
-
 const JAVA_IP = "play.bluespacecraft.fun";
 const BEDROCK_IP = "paid17.skilloraclouds.site:20019";
 const STATUS_API = "https://api.mcsrvstat.us/3/play.bluespacecraft.fun:20019";
 const OFFICIALS = [
     {
-        name: "ATRA",
-        ign: "ATRAPomegranate",
-        skin: "images/skin/ATRAPomegranate.png"
-    },
-    {
-        name: "cece",
-        ign: "cececeh",
-        skin: "images/skin/cececeh.png"
+        name: "PrismGlow",
+        ign: "PrismGlow",
+        skin: "images/skin/PrismGlow.png",
+        roles: ["Owner"]
     },
     {
         name: "Thorium",
         ign: "Thor_Advait",
-        skin: "images/skin/Thor_Advait.png"
+        skin: "images/skin/Thor_Advait.png",
+        roles: ["Owner"]
     },
     {
-        name: "Wanzy",
-        ign: "Wanzy_",
-        skin: "images/skin/Wanzy_.png"
-    },
-    {
-        name: "PrismGlow",
-        ign: "PrismGlow",
-        skin: "images/skin/PrismGlow.png"
-    },
-    {
-        name: "CryptexDev",
-        ign: "CryptexDev",
-        skin: "images/skin/CryptexDev.png"
-    },
-    {
-        name: "BitSapphire",
-        ign: "BitSapphire30",
-        skin: "images/skin/BitSapphire.png"
+        name: "ATRA",
+        ign: "ATRAPomegranate",
+        skin: "images/skin/ATRAPomegranate.png",
+        roles: ["Manager"]
     },
     {
         name: "D22",
         ign: "TurningDoom",
-        skin: "images/skin/TurningDoom.png"
+        skin: "images/skin/TurningDoom.png",
+        roles: ["Manager"]
+    },
+    {
+        name: "Wanzy",
+        ign: "Wanzy_",
+        skin: "images/skin/Wanzy_.png",
+        roles: ["Manager"]
+    },
+    {
+        name: "BitSapphire",
+        ign: "BitSapphire30",
+        skin: "images/skin/BitSapphire.png",
+        roles: ["Manager"]
+    },
+    {
+        name: "CryptexDev",
+        ign: "CryptexDev",
+        skin: "images/skin/CryptexDev.png",
+        roles: ["Admin", "Web Developer"]
+    },
+    {
+        name: "cece",
+        ign: "cececeh",
+        skin: "images/skin/cececeh.png",
+        roles: ["Admin"]
     }
 ];
 
@@ -166,13 +172,19 @@ function initGallery() {
 
 function buildOfficialCard(official) {
     const card = document.createElement("article");
+    const roleBadges = official.roles.map((role) => {
+        const roleSlug = role.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+        return `<span class="official-role official-role-${roleSlug}">${role}</span>`;
+    }).join("");
+    const skinFileName = official.skin.split("/").pop();
+
     card.className = "official-card";
     card.innerHTML = `
         <div class="official-skin-stage">
             <canvas class="official-skin-canvas" aria-label="${official.ign} 3D Minecraft skin"></canvas>
-            <div class="skin-fallback">Add <strong>${official.ign}.png</strong> inside <strong>images/skin</strong> to show this 3D skin.</div>
+            <div class="skin-fallback">Add <strong>${skinFileName}</strong> inside <strong>images/skin</strong> to show this 3D skin.</div>
         </div>
-        <span class="official-role">Official</span>
+        <div class="official-roles">${roleBadges}</div>
         <h3>${official.name}</h3>
         <p>In-game name: <strong>${official.ign}</strong></p>
     `;
