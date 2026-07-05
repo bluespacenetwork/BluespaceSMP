@@ -658,9 +658,20 @@ nav a:hover {
     opacity: .12;
 }
 
+.official-roles {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
 .official-role {
-    display: inline-block;
-    margin-bottom: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 7px 12px;
     border-radius: 999px;
     background: rgba(54, 215, 255, .12);
@@ -669,6 +680,26 @@ nav a:hover {
     font-weight: 800;
     letter-spacing: .08em;
     text-transform: uppercase;
+}
+
+.official-role-owner {
+    background: rgba(250, 204, 21, .14);
+    color: #fde68a;
+}
+
+.official-role-manager {
+    background: rgba(54, 215, 255, .14);
+    color: var(--primary);
+}
+
+.official-role-admin {
+    background: rgba(34, 197, 94, .14);
+    color: #86efac;
+}
+
+.official-role-web-developer {
+    background: rgba(168, 85, 247, .16);
+    color: #d8b4fe;
 }
 
 .official-card h3 {
