@@ -1,6 +1,6 @@
-const JAVA_IP = "play.bluespacecraft.fun";
-const BEDROCK_IP = "paid17.skilloraclouds.site:20019";
-const STATUS_API = "https://api.mcsrvstat.us/3/play.bluespacecraft.fun:20019";
+const JAVA_IP = "del-1.candynodes.in:19139";
+const BEDROCK_IP = "del-1.candynodes.in:19139";
+const STATUS_API = "https://mcstatus.io/status/java/del-1.candynodes.in:19139";
 const OFFICIALS = [
     {
         name: "PrismGlow",
