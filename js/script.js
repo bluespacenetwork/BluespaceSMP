@@ -1,5 +1,6 @@
 const JAVA_IP = "del-1.candynodes.in:19139";
 const BEDROCK_IP = "del-1.candynodes.in:19139";
+const STATUS_API = "https://api.mcstatus.io/v2/status/java/del-1.candynodes.in:19139";
 
 async function loadServer() {
     try {
